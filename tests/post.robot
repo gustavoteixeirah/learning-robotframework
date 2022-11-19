@@ -1,11 +1,7 @@
 *** Settings ***
 Documentation        POST /partners
-Library              RequestsLibrary
-Library              RobotMongoDBLibrary.Delete
 
-*** Variables ***
-${BASE_URL}          http://localhost:3333/partners
-&{MONGO_URI}        connection=mongodb://localhost:27017/PartnerDB        database=PartnerDB      collection=partner
+Resource             ${EXECDIR}/resources/base.robot
 
 
 *** Test Cases ***
@@ -32,3 +28,9 @@ Should create a new partner
     ...            headers=${headers} 
 
     Status Should Be    201
+
+    ${results}    Find  ${MONGO_URI}     ${filter}
+
+    Should Be Equal    ${response.json()}[partner_id]    ${results}[0][_id]
+
+    
