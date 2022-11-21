@@ -22,7 +22,7 @@ def factory_remove_partner():
     partner = {
         "name": "Copos da Raposa",
         "email": "contact@copos.com",
-        "whatsapp": "55999166522",
+        "whatsapp": "55999696522",
         "business": "Conveniência",
     }
     return partner
