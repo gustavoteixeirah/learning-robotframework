@@ -16,6 +16,35 @@ POST Partner
     ${response}    POST    ${BASE_URL}
     ...    json=${payload}
     ...    headers=${HEADERS}
+    ...    expected_status=any
+
     RETURN    ${response}
 
+GET Partners
+    ${response}    GET    ${BASE_URL}
+    ...    headers=${HEADERS}
+    ...    expected_status=any
+
+    RETURN    ${response}
+
+Search Partner
+    [Arguments]    ${name}
+
+    ${query}    Create Dictionary    name=${name}
+
+    ${response}    GET    ${BASE_URL}
+    ...    params=${query}
+    ...    headers=${HEADERS}
+    ...    expected_status=any
+
+    RETURN    ${response}
+
+Enable Partner
+    [Arguments]    ${partner_id}
+
+    ${response}    PUT    ${BASE_URL}/${partner_id}/enable
+    ...    headers=${HEADERS}
+    ...    expected_status=any
+
+    RETURN    ${response}
 
