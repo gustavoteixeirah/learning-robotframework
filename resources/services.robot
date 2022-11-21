@@ -57,3 +57,12 @@ Disable Partner
 
     RETURN    ${response}
 
+Delete Partner
+    [Arguments]    ${partner_id}
+
+    ${response}    DELETE    ${BASE_URL}/${partner_id}
+    ...    headers=${HEADERS}
+    ...    expected_status=any
+
+    RETURN    ${response}
+

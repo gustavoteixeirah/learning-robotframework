@@ -18,6 +18,16 @@ def factory_disable_partner():
     return partner
 
 
+def factory_remove_partner():
+    partner = {
+        "name": "Copos da Raposa",
+        "email": "contact@copos.com",
+        "whatsapp": "55999166522",
+        "business": "Conveniência",
+    }
+    return partner
+
+
 def factory_enable_partner():
     partner = {
         "name": "Nay Esmaltaria",

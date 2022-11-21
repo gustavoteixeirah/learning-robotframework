@@ -28,7 +28,16 @@ Should return 404 when trying to enable a deleted partner
     ${partner}    Factory 404 Partner
     ${partner_id}    Create a new partner    ${partner}
     Remove Partner By Name    ${partner}[name]
-    
+
     ${response}    Enable Partner    ${partner_id}
 
     Status Should Be    404
+Should return 404 when trying to disable a deleted partner
+    ${partner}    Factory 404 Partner
+    ${partner_id}    Create a new partner    ${partner}
+    Remove Partner By Name    ${partner}[name]
+
+    ${response}    Disable Partner    ${partner_id}
+
+    Status Should Be    404
+
